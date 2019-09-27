@@ -11,6 +11,12 @@ class UsuarioDAO{
 	function __construct(){
 		$this->con = mysqli_connect("localhost", "root","etecia","projetopw");
 	}
+	public function alterarsenha($id, $senha){
+		$sql = "UPDATE usuarios SET senha=md5($senha) WHERE id_usuario=$id"; 
+		$rs = $this->con->query($sql);
+		if ($rs) header("Location: usuarios.php");
+		else echo $this->con->error;
+	}
 	public function apagar($id){
 		$sql = "DELETE FROM usuarios WHERE id_usuario=$id"; 
 		$rs = $this->con->query($sql);
@@ -20,7 +26,7 @@ class UsuarioDAO{
 
 	public function inserir(){
 		
-		$sql = "INSERT INTO usuarios VALUES (0, '$this->nome', '$this->email', '$this->senha' )";
+		$sql = "INSERT INTO usuarios VALUES (0, '$this->nome', '$this->email', md5('$this->senha') )";
 		$rs = $this->con ->query($sql);
 		if ($rs) 
 			header ("Location: usuarios.php");

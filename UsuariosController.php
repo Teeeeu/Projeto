@@ -19,6 +19,12 @@ switch ($acao) {
 		$id = $_GET["id"];
 		$usuario->apagar($id);
 		break;
+	case 'trocarSenha':
+		$usuario = new UsuarioDAO();
+		$id = $_POST["id"];
+		$senha = $_POST["senha"];
+		//$usuario->alterarsenha($id, $senha);
+		break;
 
 }
 
