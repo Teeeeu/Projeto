@@ -8,9 +8,9 @@ switch ($acao) {
 	case 'inserir':
 		$usuario = new UsuarioDAO();
 		
-		$usuario ->nome = $_POST["nome"];
-		$usuario ->email = $_POST["email"];
-		$usuario ->senha = $_POST["senha"];
+		$usuario->nome = $_POST["nome"];
+		$usuario->email = $_POST["email"];
+		$usuario->senha = $_POST["senha"];
 
 		$usuario -> inserir();
 		break;
@@ -23,7 +23,7 @@ switch ($acao) {
 		$usuario = new UsuarioDAO();
 		$id = $_POST["id"];
 		$senha = $_POST["senha"];
-		//$usuario->alterarsenha($id, $senha);
+		$usuario->alterarsenha($id, $senha);
 		break;
 
 }

@@ -1,4 +1,4 @@
-<?<?php 
+<?php 
 
 include "UsuarioDAO.php";
 
@@ -20,7 +20,7 @@ $lista = $usuarioDAO->buscar();
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="#">Cadastro</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -61,10 +61,10 @@ $lista = $usuarioDAO->buscar();
 			<div class="col-2">
 				<ul class="nav flex-column nav-pills vertical">
 					<li class="nav-item">
-						<a class="nav-link active" href="#">Ativo</a>
+						<a class="nav-link active" href="#">Cadastro</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
+						<a class="nav-link"  href="Questoes.php">Questões</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Link</a>
@@ -98,7 +98,7 @@ $lista = $usuarioDAO->buscar();
 									<i class="fas fa-user-times"></i></a>
 									<button type="button" class="btn btn-warning">
 										<i class="fas fa-user-edit"></i></button>
-										<button type="button" class="alterarsenha btn btn-success" href="UsuariosController.php?acao=alterarsenha&id=<?= $usuario->id_usuario ?>" data-toggle="modal" data-target="#modalsenha" data-id="<?= $usuario->id_usuario ?>">
+										<button type="button" class="alterar-senha btn btn-success" href="UsuariosController.php?acao=alterarsenha&id=<?= $usuario->id_usuario ?>" data-toggle="modal" data-target="#modalsenha" data-id="<?= $usuario->id_usuario ?>">
 											<i class="fas fa-key"></i></button>
 
 										</td>
@@ -139,6 +139,7 @@ $lista = $usuarioDAO->buscar();
 										<input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
 									</div>
 									<button type="submit" class="btn btn-primary">Enviar</button>
+								</form>
 								</div>
 							</div>
 							</div>
@@ -156,22 +157,24 @@ $lista = $usuarioDAO->buscar();
 												</button>
 											</div>
 											<div class="modal-body">
-												<form action="UsuariosController.php?acao=trocarSenha" method="POST">
-												<input type="hidden" name="id" id ="campo-id">					
+												<form action="UsuariosController.php?acao=alterarsenha" method="POST">				
 													<div class="form-group">
+														<input type="hidden" name="id" id ="campo-id">	
 														<label for="exampleInputPassword1">Senha</label>
 														<input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-														<form>	
 														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-															<button type="button" class="btn btn-primary">Salvar</button>
-														</div>
+													</form>
 
 													</div>
+
+														<div class="modal-footer">
+															<button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+															<button type="submit" class="btn btn-primary">Salvar</button>
+														</div>
+													</div>		
 												</div>
 											</div>
-										</form>
+
 										</body>
 										<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 										<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
