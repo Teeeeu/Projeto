@@ -74,19 +74,19 @@ $lista = $questoesDAO->buscar();
 			</div>
 			<div class="col-10" >
 				<h3>Questões</h3>
-				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modalnovo">
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modalvelho">
 					<i class="fas fa-edit"></i> Insira uma Nova Questão</button>
 				<table class="table">
 					<tr>
 						<th>#</th>
 					</tr>
-					<?php foreach($lista as $usuario): ?>		
+					<?php foreach($lista as $questao): ?>		
 						<tr>
-							<td><?= $questao->ID_Questoes ?></td>
+							<td><?= $questao->id_questoes ?></td>
 							<td><?= $questao->Enunciado ?></td>
 							<td><?= $questao->Tipo ?></td>
 							<td>
-								<a type="button" class="btn btn-danger" href="UsuariosController.php?acao=apagar&id=<?= $usuario->id_usuario ?>">
+								<a type="button" class="btn btn-danger" href="QuestoesController.php?acao=apagar&id=<?= $questao->id_questoes ?>">
 									<i class="fas fa-user-times"></i></a>
 									<button type="button" class="btn btn-warning">
 										<i class="fas fa-user-edit"></i></button>
@@ -103,7 +103,7 @@ $lista = $questoesDAO->buscar();
 
 					<!-- Modal - Inserir -->
 
-					<div class="modal fade" id="Modalnovo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade" id="Modalvelho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -117,9 +117,13 @@ $lista = $questoesDAO->buscar();
 									<div class="form-group">
 										<label for="exampleInputEmail1">Questao</label>
 										<input type="Nome" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-									<button type="submit" class="btn btn-primary">Enviar</button>
 
 									</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Tipo</label>
+									<input type="Nome" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+									</div>
+									<button type="submit" class="btn btn-primary">Enviar</button>
 
 
 

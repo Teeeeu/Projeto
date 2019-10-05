@@ -6,12 +6,12 @@ $acao = $_GET["acao"];
 
 switch ($acao) {
 	case 'inserir':
-		$questao = new QuestoesDAO();
+		$usuario = new QuestoesDAO();
 		
-		$questao->Enunciado = $_POST["Enunciado"];
-		$questao->Tipo = $_POST["Tipo"];
+		$usuario->enunciado = $_POST["Enunciado"];
+		$usuario->tipo = $_POST["Tipo"];
 		
-		$questao -> inserir();
+		$usuario -> inserir();
 		break;
 	}
 

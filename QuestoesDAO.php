@@ -7,11 +7,11 @@ class QuestoesDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root","etecia","projetopw");
+		$this->con = mysqli_connect("localhost", "root","","projetopw");
 }
 public function inserir(){
 		
-		$sql = "INSERT INTO questoes VALUES (0, '$this->questao', '$this->tipo')";
+		$sql = "INSERT INTO questoes VALUES (0, '$this->Enunciado', '$this->Tipo')";
 		$rs = $this->con ->query($sql);
 		if ($rs) 
 			header ("Location: Questoes.php");
@@ -29,6 +29,12 @@ public function inserir(){
 		}
 		return $listaDeQuestoes;
 }
+	public function apagar($id){
+		$sql = "DELETE FROM questoes WHERE id_questoes=$id"; 
+		$rs = $this->con->query($sql);
+		if ($rs) header("Location: Questos.php");
+		else echo $this->con->error;	
+	}
 
 }
 ?>

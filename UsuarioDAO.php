@@ -9,7 +9,7 @@ class UsuarioDAO{
 	private $con;
 
 	function __construct(){
-		$this->con = mysqli_connect("localhost", "root","etecia","projetopw");
+		$this->con = mysqli_connect("localhost", "root","","projetopw");
 	}
 	public function alterarsenha($id, $senha){
 		$sql = "UPDATE usuarios SET senha=md5($senha) WHERE id_usuario=$id"; 
